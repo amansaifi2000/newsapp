@@ -11,7 +11,6 @@ export default class App extends Component {
         category : 'general'
     }
 }
-
    handleCategory = (category) =>{
     this.setState({category})
   } 
