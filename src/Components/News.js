@@ -43,9 +43,9 @@ constructor(props) {
     this.updateNews();
   }
   fetchMoreData = async() => {
-    this.setState({ page: this.state.page + 1 })
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=832793d204be47f4b77bcbc93de51ab0&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-      let data = await fetch(url);
+   const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=832793d204be47f4b77bcbc93de51ab0&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
+    this.setState({ page: this.state.page + 1 })  
+    let data = await fetch(url);
       let parsedData = await data.json();
       this.setState({
         articles: this.state.articles.concat(parsedData.articles),
@@ -56,7 +56,7 @@ constructor(props) {
 render() {
     return (
       <>
-        <h1 className="text-center" style={{ margin: "35px" }}>
+        <h1 className="text-center" style={{ margin: "35px" ,marginTop:"90px" }}>
           QuickNews - Top {this.capitalizeLetter(this.props.category)} Headlines{" "}</h1>
           {this.state.loading && <Spinner/>}
           <InfiniteScroll
