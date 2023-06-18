@@ -18,5 +18,5 @@ export class NewsItem extends Component {
     )
   }
 }
-
+// style={{left:'90%',zIndex:'1'}}
 export default NewsItem
